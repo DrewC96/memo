@@ -1,0 +1,11 @@
+{
+  "name": "memo",
+  "version": "0.1.0",
+  "dependencies": ["sqlite3"],
+  "features": {
+    "tests": {
+      "description": "Unit test dependencies",
+      "dependencies": ["gtest"]
+    }
+  }
+}
