@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Memo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Memo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Memo Application">
+
+    <Grid Loaded="Root_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Custom title bar -->
+            <RowDefinition Height="Auto"/>
+            <!-- Toolbar -->
+            <RowDefinition Height="*"/>
+            <!-- Content area -->
+        </Grid.RowDefinitions>
+
+        <!-- Custom title bar (referenced by SetTitleBar(CustomTitleBar)) -->
+        <Grid x:Name="CustomTitleBar" Grid.Row="0" Height="32">
+            <TextBlock Text="Memo Application"
+                       VerticalAlignment="Center"
+                       Margin="12,0,0,0"
+                       Style="{StaticResource CaptionTextBlockStyle}"/>
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- section tabs -->
+                <RowDefinition Height="*"/>
+                <!-- canvas + page list -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="220"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Sections -->
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <ListView x:Name="SectionList"
+              ItemsSource="{x:Bind Sections}"
+              DisplayMemberPath="Name"
+              SelectionChanged="SectionList_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <Button Content="+" Click="AddSection_Click"/>
+            </StackPanel>
+
+            <!-- Canvas -->
+            <local:NoteCanvas x:Name="NoteCanvasControl" Grid.Row="1" Grid.Column="0"/>
+
+            <!-- Pages -->
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView x:Name="PageList"
+              DisplayMemberPath="Title"
+              SelectionChanged="PageList_SelectionChanged"/>
+                <Button Grid.Row="1" Content="+ Add page"
+            HorizontalAlignment="Stretch" Click="AddPage_Click"/>
+            </Grid>
+        </Grid>
+
+        <!-- Content area -->
+        <Grid Grid.Row="2">
+            <ScrollViewer HorizontalScrollMode="Auto"
+                          VerticalScrollMode="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto">
+                <RichTextBlock/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
