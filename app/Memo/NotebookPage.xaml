@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Memo.NotebookPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Memo">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- header: back button + notebook name -->
+            <RowDefinition Height="Auto"/>
+            <!-- section tabs -->
+            <RowDefinition Height="*"/>
+            <!-- canvas + page list -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="220"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" Spacing="8" Padding="8">
+            <Button Click="Back_Click">
+                <SymbolIcon Symbol="Back"/>
+            </Button>
+            <TextBlock x:Name="NotebookTitle"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource SubtitleTextBlockStyle}"/>
+        </StackPanel>
+
+        <!-- Sections -->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    Background="{ThemeResource SectionBarBackground}">
+            <ListView x:Name="SectionList"
+                      DisplayMemberPath="Name"
+                      SelectionChanged="SectionList_SelectionChanged">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+            <Button Content="+" Click="AddSection_Click"/>
+        </StackPanel>
+
+        <!-- Canvas -->
+        <local:NoteCanvas x:Name="NoteCanvasControl" Grid.Row="2" Grid.Column="0"/>
+
+        <!-- Pages -->
+        <Grid Grid.Row="2" Grid.Column="1"
+              Background="{ThemeResource PageListBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView x:Name="PageList"
+                      DisplayMemberPath="Title"
+                      SelectionChanged="PageList_SelectionChanged"/>
+            <Button Grid.Row="1" Content="+ Add page" Margin="8"
+                    HorizontalAlignment="Stretch"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="AddPage_Click"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,100 @@
+<Page
+    x:Class="Memo.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Memo">
+
+    <NavigationView PaneDisplayMode="Left"
+                    OpenPaneLength="240"
+                    IsBackButtonVisible="Collapsed"
+                    IsPaneToggleButtonVisible="False"
+                    IsSettingsVisible="True">
+
+        <NavigationView.PaneCustomContent>
+            <Button Content="+  New notebook"
+                    Click="NewNotebook_Click"
+                    HorizontalAlignment="Stretch"
+                    Margin="12,16,12,12" />
+        </NavigationView.PaneCustomContent>
+
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Home" Icon="Home" IsSelected="True" />
+            <NavigationViewItem Content="Library" Icon="Library" />
+            <NavigationViewItem Content="Recent" Icon="Clock" />
+            <NavigationViewItem Content="Trash" Icon="Delete" />
+        </NavigationView.MenuItems>
+
+        <ScrollViewer>
+            <StackPanel Padding="40,32" Spacing="32">
+
+                <!-- Header: title + search -->
+                <Grid ColumnSpacing="24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" MaxWidth="420" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Home" Style="{StaticResource TitleLargeTextBlockStyle}" />
+                    <AutoSuggestBox Grid.Column="1" PlaceholderText="Search Memo"
+                                    QueryIcon="Find" VerticalAlignment="Center" />
+                </Grid>
+
+                <!-- Recent pages -->
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Recent pages" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                                  HorizontalScrollMode="Enabled"
+                                  VerticalScrollMode="Disabled"
+                                  VerticalScrollBarVisibility="Disabled">
+                        <ItemsControl ItemsSource="{x:Bind RecentPages}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" Spacing="16" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="local:NotePage">
+                                    <Border Width="220" Height="260" CornerRadius="8"
+                                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                            BorderThickness="1">
+                                        <Grid Padding="16" RowDefinitions="*,Auto,Auto" RowSpacing="4">
+                                            <!-- thumbnail goes in row 0 later -->
+                                            <TextBlock Grid.Row="1" Text="{x:Bind Title}" FontWeight="SemiBold" />
+                                            <TextBlock Grid.Row="2" Opacity="0.7"
+                                                       Text="{x:Bind local:HomePage.FormatDate(LastModified)}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </StackPanel>
+
+                <!-- Recent books -->
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Notebooks" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <GridView x:Name="NotebookGrid"
+                              IsItemClickEnabled="True" SelectionMode="None"
+                              ItemClick="NotebookGrid_ItemClick">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="local:Notebook">
+                                <Border Width="216" Height="290" CornerRadius="6"
+                                        Background="{ThemeResource AccentFillColorDefaultBrush}">
+                                    <Grid Padding="20" RowDefinitions="Auto,*,Auto">
+                                        <TextBlock Text="{x:Bind Name}" FontSize="20"
+                                                   FontWeight="SemiBold" TextWrapping="Wrap"
+                                                   Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
+                                        <TextBlock Grid.Row="2" Text="{x:Bind Sections.Count}"
+                                                   Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </NavigationView>
+</Page>

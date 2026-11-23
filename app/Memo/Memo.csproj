@@ -17,6 +17,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\AppIcon.ico" />
+    <None Remove="HomePage.xaml" />
+    <None Remove="NotebookPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,6 +62,16 @@
     <Content Update="Assets\AppIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="NotebookPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="NoteCanvas.xaml">

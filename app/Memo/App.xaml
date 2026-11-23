@@ -7,10 +7,44 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <!-- Other merged dictionaries here -->
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other app resources here -->
+
+            <!-- Jade accent. Overriding these recolors the whole app. -->
+            <Color x:Key="SystemAccentColor">#00855A</Color>
+            <Color x:Key="SystemAccentColorDark1">#00704C</Color>
+            <Color x:Key="SystemAccentColorDark2">#005C3F</Color>
+            <Color x:Key="SystemAccentColorDark3">#004832</Color>
+            <Color x:Key="SystemAccentColorLight1">#2A9D77</Color>
+            <Color x:Key="SystemAccentColorLight2">#5DB596</Color>
+            <Color x:Key="SystemAccentColorLight3">#8FCDB5</Color>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <!-- Surfaces: very pale avocado-tinted grays -->
+                    <SolidColorBrush x:Key="SectionBarBackground" Color="#EEF2E2"/>
+                    <SolidColorBrush x:Key="PageListBackground" Color="#F3F6EA"/>
+                    <SolidColorBrush x:Key="CanvasBackground" Color="#FFFFFF"/>
+
+                    <!-- List selection: avocado tints -->
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="#DDE8B8"/>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="#D1DFA3"/>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPressed" Color="#C5D68F"/>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundPointerOver" Color="#E4EBCF"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Dark">
+                    <!-- Surfaces: deep jade-tinted darks -->
+                    <SolidColorBrush x:Key="SectionBarBackground" Color="#1F2B25"/>
+                    <SolidColorBrush x:Key="PageListBackground" Color="#1A241F"/>
+                    <SolidColorBrush x:Key="CanvasBackground" Color="#1E1E1E"/>
+
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="#2F4A2A"/>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="#3A5A33"/>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPressed" Color="#456B3C"/>
+                    <SolidColorBrush x:Key="ListViewItemBackgroundPointerOver" Color="#2B3A32"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
