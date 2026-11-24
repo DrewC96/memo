@@ -62,6 +62,9 @@
     <Content Update="Assets\AppIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="Assets\TbjMalibuMiniEditionRegular-KV65X.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Page Update="NotebookPage.xaml">

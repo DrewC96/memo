@@ -19,6 +19,9 @@
             <Color x:Key="SystemAccentColorLight2">#5DB596</Color>
             <Color x:Key="SystemAccentColorLight3">#8FCDB5</Color>
 
+            <!-- Text fonts -->
+            <FontFamily x:Key="HeaderFont">ms-appx:///Assets/TbjMalibuMiniEditionRegular-KV65X.otf#TBJ Malibu Mini Edition</FontFamily>
+            
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
                     <!-- Surfaces: very pale avocado-tinted grays -->
