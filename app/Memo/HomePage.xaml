@@ -31,18 +31,26 @@
                            FontFamily="{StaticResource HeaderFont}" />
 
                 <Button Click="NewNotebook_Click"
-                        HorizontalAlignment="Stretch"
-                        HorizontalContentAlignment="Left"
-                        Height="44"
-                        Padding="14,0"
-                        CornerRadius="4">
+                    PointerEntered="NewNotebookButton_PointerEntered"
+                    PointerExited="NewNotebookButton_PointerExited"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Height="44"
+                    Padding="14,0"
+                    CornerRadius="4">       
+                    <Button.TranslationTransition>
+                        <Vector3Transition Duration="0:0:0.15" />
+                    </Button.TranslationTransition>
                     <Button.Resources>
-                        <SolidColorBrush x:Key="ButtonBackground" Color="{StaticResource PrimaryGreenColor}" />
-                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="{StaticResource PrimaryGreenHoverColor}" />
-                        <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="{StaticResource PrimaryGreenPressedColor}" />
-                        <SolidColorBrush x:Key="ButtonForeground" Color="White" />
-                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
-                        <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
+                        <SolidColorBrush x:Key="ButtonBackground" Color="#74997C" />
+                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#82A98A" />
+                        <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#6A8D72" />
+
+                        <!-- Dark text for contrast, same in every state -->
+                        <SolidColorBrush x:Key="ButtonForeground" Color="#14231A" />
+                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="#14231A" />
+                        <SolidColorBrush x:Key="ButtonForegroundPressed" Color="#14231A" />
+
                         <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                         <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent" />
                         <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />

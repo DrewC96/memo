@@ -20,9 +20,9 @@
             <Color x:Key="SystemAccentColorLight3">#8FCDB5</Color>
 
             <!-- Primary green (New notebook button, nav selection bar) -->
-            <Color x:Key="PrimaryGreenColor">#5B8C5A</Color>
-            <Color x:Key="PrimaryGreenHoverColor">#69A068</Color>
-            <Color x:Key="PrimaryGreenPressedColor">#4E7A4D</Color>
+            <Color x:Key="PrimaryGreenColor">#74997c</Color>
+            <Color x:Key="PrimaryGreenHoverColor">#1c1f20</Color>
+            <Color x:Key="PrimaryGreenPressedColor">#232826</Color>
             <SolidColorBrush x:Key="PrimaryGreenBrush"
                              Color="{StaticResource PrimaryGreenColor}" />
 

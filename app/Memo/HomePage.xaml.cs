@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using System.Numerics;
 
 namespace Memo
 {
@@ -43,6 +44,16 @@ namespace Memo
         private void NewNotebook_Click(object sender, RoutedEventArgs e)
         {
             AppData.Notebooks.Add(new Notebook { Name = $"Notebook {AppData.Notebooks.Count + 1}" });
+        }
+
+        private void NewNotebookButton_PointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            ((UIElement)sender).Translation = new Vector3(0, -3, 0);
+        }
+
+        private void NewNotebookButton_PointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            ((UIElement)sender).Translation = Vector3.Zero;
         }
     }
 
