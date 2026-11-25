@@ -19,9 +19,32 @@
             <Color x:Key="SystemAccentColorLight2">#5DB596</Color>
             <Color x:Key="SystemAccentColorLight3">#8FCDB5</Color>
 
+            <!-- Primary green (New notebook button, nav selection bar) -->
+            <Color x:Key="PrimaryGreenColor">#5B8C5A</Color>
+            <Color x:Key="PrimaryGreenHoverColor">#69A068</Color>
+            <Color x:Key="PrimaryGreenPressedColor">#4E7A4D</Color>
+            <SolidColorBrush x:Key="PrimaryGreenBrush"
+                             Color="{StaticResource PrimaryGreenColor}" />
+
+            <!-- Gray and Black for backgrounds and text -->
+            <Color x:Key="PaneBackgroundColor">#161619</Color>
+            <SolidColorBrush x:Key="PaneBackgroundBrush"
+                             Color="{StaticResource PaneBackgroundColor}" />
+            <Color x:Key="HomeContentColor">#121215</Color>
+            <SolidColorBrush x:Key="HomeContentBrush"
+                             Color="{StaticResource HomeContentColor}" />
+            <Color x:Key="SystemColorControlDarkColor">#000000</Color>
+            <SolidColorBrush x:Key="SystemColorControlDarkBrush"
+                             Color="{StaticResource SystemColorControlDarkColor}" />
+
+            <!-- Border Brush Colors -->
+            <Color x:Key="LightBorderColor">#2e2e33</Color>
+            <SolidColorBrush x:Key="LightBorderBrush"
+                             Color="{StaticResource LightBorderColor}" />
+
             <!-- Text fonts -->
             <FontFamily x:Key="HeaderFont">ms-appx:///Assets/TbjMalibuMiniEditionRegular-KV65X.otf#TBJ Malibu Mini Edition</FontFamily>
-            
+
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
                     <!-- Surfaces: very pale avocado-tinted grays -->

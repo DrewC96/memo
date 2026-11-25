@@ -32,6 +32,9 @@ namespace Memo
             return d.ToString("MMM d");
         }
 
+        public static string FormatSectionCount(int count) =>
+            count == 1 ? "1 section" : $"{count} sections";
+
         private void NotebookGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
             Frame.Navigate(typeof(NotebookPage), e.ClickedItem);
